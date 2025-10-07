@@ -1,0 +1,71 @@
+<div class="center-container">
+    <div class="form-box">
+      <h1 class="form-heading">Add Task</h1>
+      <form  [formGroup]="addtaskForm" class="example-form"  (ngSubmit)="addTasks()">
+      <div class="form-group">
+        <p>Title</p>
+        <mat-form-field appearance="outline" class="example-full-width">
+          <input matInput  formControlName="todo">
+          <!-- <mat-error *ngIf="addtaskForm.get('todo')?.hasError('required')">Enter title</mat-error> -->
+        </mat-form-field>
+        <div *ngIf="addtaskForm.get('todo')?.hasError('required') && addtaskForm.get('todo')?.touched" 
+         style="color: red; font-size: 13px; margin-top: 5px;">
+        Enter title
+      </div>
+      </div>
+  
+      <div class="form-group">
+        <p>Description</p>
+        <mat-form-field appearance="outline" class="example-full-width">
+          <textarea matInput  formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+  
+      <div class="form-group">
+        <p>Status</p>
+        <!-- <mat-form-field appearance="outline" class="example-full-width"> -->
+            <mat-radio-group aria-label="Select an option"  formControlName="completed">
+                <mat-radio-button [value]="true">Completed</mat-radio-button>
+                <mat-radio-button [value]="false">Pending</mat-radio-button>
+              </mat-radio-group>
+    <div *ngIf="addtaskForm.get('status')?.hasError('required') && addtaskForm.get('status')?.touched" 
+    style="color: red; font-size: 13px; margin-top: 5px;">
+    Select status
+  </div>
+       
+      </div>
+  
+      <div class="form-group">
+        <p>Priority</p>
+        <mat-form-field appearance="outline" class="example-full-width"  >
+            
+                
+                <select matNativeControl required formControlName="priority">
+                  <option value="">-- Select priority --</option>
+                  <option value="high" >High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                
+                </select>
+              </mat-form-field>
+       
+      </div>
+  
+      <div class="form-group">
+        <p>Category</p>
+        <mat-form-field appearance="outline" class="example-full-width">
+          <input matInput>
+        </mat-form-field>
+      </div>
+  
+      <div class="form-group">
+        <p>Assigned To</p>
+        <mat-form-field appearance="outline" class="example-full-width">
+          <input matInput  formControlName="assignedto">
+        </mat-form-field>
+      </div>
+  
+      <button mat-stroked-button type="submit" [disabled]="addtaskForm.invalid">ADD</button>
+    </form>
+  </div>
+</div>

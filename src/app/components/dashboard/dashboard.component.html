@@ -1,0 +1,20 @@
+
+<mat-toolbar class="back">
+  <img src="/assets/task.avif" alt="image" height="50" width="50">
+  <span style="margin-left: 10px;">Task Manager</span>
+
+    
+    <span class="spacer"></span>
+
+    <h1 style="color: blue; font-size: 40px; text-align:center">
+        {{ loggeddata.userName }}
+      </h1>
+    <button mat-button routerLink="/dashboard/tasklist">Tasks</button>
+    <button mat-button routerLink="/dashboard/addtasks">Add Task</button>
+    
+    <button type="submit" (click)="logout()" mat-button routerLink="/logout">Logout</button>
+    
+  </mat-toolbar> 
+  
+  <router-outlet></router-outlet>
+  
