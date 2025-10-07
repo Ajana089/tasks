@@ -69,7 +69,7 @@ export class LoginComponent {
    // user.token = Math.floor(Math.random() * 1000);
     sessionStorage.setItem('loginuser', JSON.stringify(user));
     users.push(user);
-    localStorage.setItem('usersList', JSON.stringify(users));
+    //localStorage.setItem('usersList', JSON.stringify(users));
     this.router.navigateByUrl("dashboard");
     this.loginForm.reset();
     }
